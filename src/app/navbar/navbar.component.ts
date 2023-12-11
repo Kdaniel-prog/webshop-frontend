@@ -22,6 +22,7 @@ export class NavbarComponent {
     this.getCountedProduct();
     this.sharedService.refreshData$.subscribe(() => {
       this.getCountedProduct();
+      console.log('refresh')
     });
   }
   

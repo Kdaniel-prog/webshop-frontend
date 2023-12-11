@@ -11,22 +11,25 @@ export class UserStorageService {
 
   constructor() { }
 
+  cartId = 0;
+
   public saveUserid(id: number): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, String(id));
+    window.localStorage.removeItem(USER_KEY);
+    window.localStorage.setItem(USER_KEY, String(id));
   }
 
   public getUserId(): number {
-    return Number(window.sessionStorage.getItem(USER_KEY));
+    return Number(window.localStorage.getItem(USER_KEY));
   }
 
   public saveCartid(id: number): void {
-    window.sessionStorage.removeItem(CART_ID);
-    window.sessionStorage.setItem(CART_ID, String(id));
+    window.localStorage.removeItem(CART_ID);
+    window.localStorage.setItem(CART_ID, String(id));
+    
   }
 
   public getCartId(): number {
-    return Number(window.sessionStorage.getItem(CART_ID));
+    return Number(window.localStorage.getItem(CART_ID));
   }
 
 }

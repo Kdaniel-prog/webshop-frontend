@@ -4,12 +4,13 @@ import { UserStorageService } from '../services/user-storage.service';
 import User from '../classes/User';
 import { CommonModule } from '@angular/common';
 import CartItems from '../classes/CartItems';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.css'
 })
@@ -20,8 +21,7 @@ export class SummaryComponent {
   constructor(
     private apiService: APIService, 
     private userStorageService: UserStorageService,
-    private sharedService: SharedService
-  ) {}
+    private sharedService: SharedService) {}
 
   ngOnInit():void {
     this.getUserInformation();
@@ -54,20 +54,35 @@ export class SummaryComponent {
       }
     )
   }
-  handleOrder(){
+
+  async refreshCartAfterBuy(){
     this.apiService.saveOrdered(this.user.id).subscribe(
-      (response) => {
+       async (response) => {
         console.log('ordered successfully');
-        this.triggerRefreshCart();
-        this. getCartItems();
+        console.log(response);
+        await this.userStorageService.saveCartid(response.id);
+        await this.apiService.getCartItems(response.id).subscribe(
+          async (response) =>{ 
+            console.log(response)
+             this.cartItems = response;
+            if(this.cartItems){
+              this.total = this.cartItems[0]?.cartId?.total ? this.cartItems[0].cartId.total : 0 ;
+            }
+            this.sharedService.triggerRefresh();
+          },
+          (error) => {
+            console.error('Error: ', error.error);
+          }
+        )
       },
       (error) => {
         console.log('error '+error);
       }
     )
   }
-  triggerRefreshCart() {
-    this.sharedService.triggerRefresh();
+
+  async endOrderAndTriggerRefreshCart() {
+    await this.refreshCartAfterBuy();
   }
 
 }
