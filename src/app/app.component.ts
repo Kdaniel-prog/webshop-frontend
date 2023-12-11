@@ -38,8 +38,5 @@ export class AppComponent {
     )
 
   }
-  refreshProducts(){
-    console.log('hello world')
-  }
 
  }
