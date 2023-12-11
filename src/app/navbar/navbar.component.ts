@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';import { MatIconModule } from '@angular/material/icon';
+import { Component, Input } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { UserStorageService } from '../services/user-storage.service';
