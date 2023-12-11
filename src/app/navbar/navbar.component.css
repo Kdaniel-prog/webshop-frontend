@@ -1,0 +1,40 @@
+.nav__background{
+    background-color: #FFF7D4;
+    padding:10px;
+}
+
+.nav__items{
+    display: flex;
+}
+
+.nav__item{
+    padding-right: 20px;
+    cursor: pointer;
+    color: #B1C381;
+}
+
+.nav__item:hover{
+    color: #a4b86d;
+}
+
+.nav__spacing{
+    margin: 20px;
+}
+
+.icon-display {
+    transform: scale(1.3);
+ }
+ .nav__counter {
+    right: 2px;
+    top:20px;
+    position: absolute;
+    background-color: #ffffff;
+    width: 30px;  /* Adjust the width and height based on your design */
+    height: 30px;
+    border-radius: 50%;
+}
+
+.nav__item__car{
+    position: relative;
+
+}

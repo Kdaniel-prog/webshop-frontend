@@ -1,0 +1,34 @@
+.card__bg{
+    border-radius: 8px;
+    background: #EEC759;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: #312703;
+    width: 100%;
+}
+
+.card__text{
+    font-size: 13px;
+    font-weight: bold;
+    white-space: normal;
+    display: flex;
+}
+
+.icon-display {
+    transform: scale(0.8);
+}
+
+.card__add{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__button{
+    all: unset;
+    cursor: pointer;
+}
+
+.card__button:hover{
+    color: #77641d;
+}

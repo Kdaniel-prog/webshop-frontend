@@ -1,0 +1,18 @@
+<nav class="nav__background">
+    <div class="nav__items d-flex justify-content-around">
+        <a class="nav__item" routerLink=""  routerLinkActive="active" ariaCurrentWhenActive="page">
+            <mat-icon aria-hidden="false" class="icon-display" aria-label="Shopping cart icon" fontIcon="home"></mat-icon>
+        </a>
+        <a class="nav__item" routerLink="/user-managment"  routerLinkActive="active" ariaCurrentWhenActive="page">
+            <mat-icon aria-hidden="false" class="icon-display" aria-label="Man icon" fontIcon="man"></mat-icon>
+        </a>
+        <a class="nav__item nav__item__car" routerLink="/shopping-cart"  routerLinkActive="active" ariaCurrentWhenActive="page">
+            <mat-icon aria-hidden="false" class="icon-display" aria-label="Shopping cart icon" fontIcon="shopping_cart"></mat-icon>
+            <div class="nav__counter">
+                <p style="font-size: 13px; top:7px; left:2.5px; position: absolute; color: #000000; font-weight: 700;">
+                    {{cartCounter}}
+                </p>
+            </div>
+        </a>
+    </div>
+</nav>

@@ -1,0 +1,41 @@
+.content{
+    padding-top: 50px;
+}
+.content__bg{
+    background-color: aliceblue;
+    border-radius: 8px;
+    padding: 40px;
+}
+td{
+    padding-right:40px;
+}
+
+.icon-display {
+    transform: scale(0.8);
+    position: absolute;
+    left: 20px;
+    top: -15px;
+}
+.card__input{
+    max-width: 50px;
+}
+
+.card__button{
+    all: unset;
+    cursor: pointer;
+    position: relative;
+}
+
+.card__button:hover{
+    color: #77641d;
+}
+
+.link{
+    cursor: pointer;
+    background-color: #FFF7D4;
+    padding: 10px;
+}
+
+.link:hover{
+    background-color: rgb(204, 195, 157);
+}

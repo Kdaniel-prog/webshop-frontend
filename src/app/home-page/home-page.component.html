@@ -1,0 +1,23 @@
+<div class="content">
+    <div class="content__bg">
+        <div class="product__grid">
+            <c-product-item *ngFor="let product of products;"
+            id="{{product.id}}"
+            category="{{product.category}}"
+            quantity="{{product.quantity}}"
+            name="{{product.productName}}"
+            price="{{product.price}}"
+            (refreshData)="refreshProducts()"
+            class="product-item"></c-product-item>
+        </div>
+        <div style="padding-top: 20px; padding-bottom: 20px;"></div>
+        <mat-paginator 
+            [length]="length"
+            [pageSize]="pagesize"
+            aria-label="Select page"
+            (page)="handlePageEvent($event)">
+        </mat-paginator>        
+    </div>
+</div>
+
+

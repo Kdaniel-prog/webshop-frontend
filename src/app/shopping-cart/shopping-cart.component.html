@@ -1,0 +1,48 @@
+<div class="content">
+    <div class="content__bg">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col"><h5><b>Name</b></h5></th>
+                    <th scope="col"><h5><b>Category</b></h5></th>
+                    <th scope="col"><h5><b>Quantity</b></h5></th>
+                    <th scope="col"><h5><b>Item/Price</b></h5></th>
+                    <th scope="col"><h5><b>Sum Price</b></h5></th>
+                    <th scope="col"><h5><b>Remove x Quantity</b></h5></th>
+                    <th scope="col"><h5><b>Delete product</b></h5></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartItems">
+                    <td><span>{{item.productName}}</span></td>
+                    <td><span>{{item.category}}</span></td>
+                    <td><span>{{item.quantity}}</span></td>
+                    <td><span>{{item.price}}</span></td>
+                    <td><span>{{item.price * item.quantity}}</span></td>
+                    <td>
+                        <input  class="card__input" type="number" [(ngModel)]="item.wantedQuantity" min="1" max="{{item.quantity}}">
+                        <button class="card__button" (click)="removeXproduct(item.wantedQuantity, item.productName, item.category, item.price)"> 
+                            <mat-icon aria-hidden="false" class="icon-display" aria-label="Shopping cart icon" fontIcon="remove_circle"></mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="card__button" (click)="deleteProduct(item.quantity, item.productName, item.category, item.price)"> 
+                            <mat-icon aria-hidden="false" class="icon-display" aria-label="Shopping cart icon" fontIcon="delete"></mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=3></td>
+                    <td style="font-weight: 700;"><span>Total:</span></td>
+                    <td colspan=2 ><span>{{total}}</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a class="link" routerLink="/summary"  routerLinkActive="active" ariaCurrentWhenActive="page">
+            Tovább a megrendelés befejezése oldalra
+        </a>
+    </div>
+
+</div>

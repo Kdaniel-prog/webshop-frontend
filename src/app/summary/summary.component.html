@@ -1,0 +1,74 @@
+<div class="content">
+    <div class="content__bg">
+        <div class="container">
+            <div class="row" *ngIf="user">
+              <div class="col" >
+                    <p class="user__header">General Information's</p>
+                    <p class="user__font">
+                        Full Name: {{user.lastName}} {{user.firstName}}
+                    </p>
+                    <p class="user__font">
+                        Username: {{user.username}}
+                    </p>
+                </div>
+                <div class="col">
+                    <p class="user__header">Billing Address</p>
+                    <p class="user__font">
+                        City: {{user.billingAddress.city}} {{user.billingAddress.zipCode}}
+                    </p>
+                    <p class="user__font">
+                        Street: {{user.billingAddress.street}} {{user.billingAddress.houseNumber}}
+                    </p>
+                    <p class="user__font">
+                        {{user.billingAddress.stairs ? 'Stair:'+ user.billingAddress.stairs : '' }} 
+                        {{user.billingAddress.flat ? 'Stair:'+ user.billingAddress.flat : ''}} 
+                        {{user.billingAddress.door ? 'Door: '+user.billingAddress.door : ''}} 
+                    </p>
+                </div>
+                <div class="col">
+                    <p class="user__header">Delivery Address</p>
+                    <p class="user__font">
+                        City: {{user.deliveryAddress.city}} {{user.deliveryAddress.zipCode}}
+                    </p>
+                    <p class="user__font">
+                        Street: {{user.deliveryAddress.street}} {{user.deliveryAddress.houseNumber}}
+                    </p>
+                    <p class="user__font">
+                        {{user.deliveryAddress.stairs ? 'Stair:'+ user.deliveryAddress.stairs : '' }} 
+                        {{user.deliveryAddress.flat ? 'Stair:'+ user.deliveryAddress.flat : ''}} 
+                        {{user.deliveryAddress.door ? 'Door: '+user.deliveryAddress.door : ''}} 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <span style="padding: 20px;"></span>
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col"><h5><b>Name</b></h5></th>
+                    <th scope="col"><h5><b>Category</b></h5></th>
+                    <th scope="col"><h5><b>Quantity</b></h5></th>
+                    <th scope="col"><h5><b>Item/Price</b></h5></th>
+                    <th scope="col"><h5><b>Sum Price</b></h5></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartItems">
+                    <td><span>{{item.productName}}</span></td>
+                    <td><span>{{item.category}}</span></td>
+                    <td><span>{{item.quantity}}</span></td>
+                    <td><span>{{item.price}}</span></td>
+                    <td><span>{{item.price * item.quantity}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan=3></td>
+                    <td style="font-weight: 700;"><span>Total:</span></td>
+                    <td><span>{{total}}</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <span style="padding: 20px;"></span>
+        <button (click)="handleOrder()">Megrendelés</button>
+    </div>
+</div>
