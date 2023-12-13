@@ -55,13 +55,13 @@ export class SummaryComponent {
     )
   }
 
-  async refreshCartAfterBuy(){
+  refreshCartAfterBuy(){
     this.apiService.saveOrdered(this.user.id).subscribe(
-       async (response) => {
+       (response) => {
         console.log('ordered successfully');
         console.log(response);
-        await this.userStorageService.saveCartid(response.id);
-        await this.apiService.getCartItems(response.id).subscribe(
+        this.userStorageService.saveCartid(response.id);
+        this.apiService.getCartItems(response.id).subscribe(
           async (response) =>{ 
             console.log(response)
              this.cartItems = response;
@@ -81,8 +81,8 @@ export class SummaryComponent {
     )
   }
 
-  async endOrderAndTriggerRefreshCart() {
-    await this.refreshCartAfterBuy();
+  endOrderAndTriggerRefreshCart() {
+    this.refreshCartAfterBuy();
   }
 
 }
