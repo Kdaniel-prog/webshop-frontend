@@ -4,16 +4,19 @@ import { APIService } from '../../services/api.service';
 import { UserStorageService } from '../../services/user-storage.service';
 import { FormsModule } from '@angular/forms';
 import CartItem from '../../classes/Cart';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'c-product-item',
   standalone: true,
-  imports: [MatIconModule, FormsModule],
+  imports: [MatIconModule, FormsModule, CommonModule],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent {
-  constructor(private apiService: APIService, private userStorageService: UserStorageService) {}
+  constructor(
+    private apiService: APIService, 
+    private userStorageService: UserStorageService) {}
 
   @Input() id = '';
   @Input() name = '';

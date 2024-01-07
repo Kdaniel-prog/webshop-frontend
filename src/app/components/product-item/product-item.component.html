@@ -1,7 +1,7 @@
 <div class="card__bg">
     <p class="card__text  justify-content-center">{{name}}</p>
     <p class="card__text" style="padding-top: 10px;">Category: {{category}}</p>
-    <p class="card__text" style="padding-top: 2px;">Price: {{price}} $</p>
+    <p class="card__text" style="padding-top: 2px;">Price: {{price | currency: 'HUF'}}</p>
     <p class="card__text justify-content-end">Quantity: {{quantity}}</p>
 
     <div class="card__add">
@@ -10,5 +10,4 @@
             <mat-icon aria-hidden="false" class="icon-display" aria-label="Shopping cart icon" fontIcon="shopping_cart"></mat-icon>
         </button>
     </div>
-
 </div>
